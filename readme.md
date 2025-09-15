@@ -28,6 +28,8 @@ local Player = require "player"
 🚀 Usage
 
 1. Create a Player Instance
+
+   ```lua
    function love.load()
    player = Player:new(400, 200, {
    speed = 200,
@@ -43,16 +45,23 @@ local Player = require "player"
    allowDoubleJump = true
    })
    end
+   ```
 
 2. Update Player Each Frame
+
+```lua
    function love.update(dt)
    player:update(dt)
    end
+```
 
 3. Draw Player
+
+```lua
    function love.draw()
    player:draw()
    end
+```
 
 ⚙️ Configuration Options
 | Option | Type | Default | Description |
@@ -77,12 +86,15 @@ Left Shift – Dash (if dashing is enabled)
 
 🧩 Extending / Injecting
 You can extend or override any function:
+
+```lua
 local Player = require "player"
 function Player:draw()
 love.graphics.setColor(1, 0, 0) -- custom color
 love.graphics.rectangle("fill", self.x - self.width/2, self.y - self.height/2, self.width, self.height)
 love.graphics.setColor(1, 1, 1)
 end
+```
 
 This lets you use sprites, animations, or custom rendering without touching player.lua.
 
@@ -92,3 +104,7 @@ Replace with a collision library (e.g. bump.lua
 ) for real games.
 Dash and double-jump are optional and are only active when explicitly enabled.
 You can spawn multiple players by calling Player:new() multiple times with different positions/configs.
+
+```
+
+```
